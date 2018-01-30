@@ -24,13 +24,14 @@ module.exports = passport => {
         async (req, accessToken, refreshToken, profile, done) => {
           let user;
           try {
-            const { id, provider, displayName } = profile;
+            const { id, provider, displayName, emails } = profile;
 
             user = await UsersService.findOrCreateExternalUser(
               req.context,
               id,
               provider,
-              displayName
+              displayName,
+              emails
             );
           } catch (err) {
             return done(err);
