@@ -10,7 +10,7 @@ module.exports = router => {
     passport.authenticate('google', {
       display: 'popup',
       authType: 'rerequest',
-      scope: ['profile'],
+      scope: ['profile', 'email'],
     })
   );
 

@@ -431,7 +431,7 @@ class UsersService {
    * @param  {Object}   profile - User social/external profile
    * @param  {Function} done    [description]
    */
-  static async findOrCreateExternalUser(ctx, id, provider, displayName) {
+  static async findOrCreateExternalUser(ctx, id, provider, displayName, emails) {
     let user = await UserModel.findOne({
       profiles: {
         $elemMatch: {
@@ -448,12 +448,22 @@ class UsersService {
 
     // Create an initial username for the user.
     let username = await UsersService.getInitialUsername(displayName);
+    let profile = { id, provider };
+    if (emails && emails.length) {
+      try {
+        let email = emails[0].value;
+
+        profile.metadata = { email };
+      } catch (err) {
+        debug('unable to save email from external source: ' + err);
+      }
+    }
 
     // The user was not found, lets create them!
     user = new UserModel({
       username,
       lowercaseUsername: username.toLowerCase(),
-      profiles: [{ id, provider }],
+      profiles: [profile],
       status: {
         username: {
           status: 'UNSET',

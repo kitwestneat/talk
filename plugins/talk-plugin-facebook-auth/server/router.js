@@ -11,7 +11,7 @@ module.exports = router => {
     return passport.authenticate('facebook', {
       display: 'popup',
       authType: 'rerequest',
-      scope: ['public_profile'],
+      scope: ['public_profile', 'email'],
     })(req, res, next);
   });
 

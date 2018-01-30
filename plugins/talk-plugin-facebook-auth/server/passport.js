@@ -20,21 +20,22 @@ module.exports = passport => {
           clientSecret: process.env.TALK_FACEBOOK_APP_SECRET,
           callbackURL: `${ROOT_URL}api/v1/auth/facebook/callback`,
           passReqToCallback: true,
-          profileFields: ['id', 'displayName', 'picture.type(large)'],
+          profileFields: ['id', 'displayName', 'picture.type(large)', 'email'],
         },
         async (req, accessToken, refreshToken, profile, done) => {
           let user;
           try {
-            const { id, provider, displayName } = profile;
+            const { id, provider, displayName, emails } = profile;
 
             user = await UsersService.findOrCreateExternalUser(
               req.context,
               id,
               provider,
-              displayName
+              displayName,
+              emails
             );
           } catch (err) {
-            return done(err);
+            return done(err.toString());
           }
 
           return ValidateUserLogin(profile, user, done);
