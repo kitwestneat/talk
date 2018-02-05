@@ -293,7 +293,9 @@ class Stream extends React.Component {
             )}
           </div>
         ) : (
-          <p class="talk-stream-closed-message">{asset.settings.closedMessage}</p>
+          <p className={cn('talk-stream-closed-message', styles.closedMessage)}>
+            {asset.settings.closedMessage}
+          </p>
         )}
 
         <Slot fill="stream" passthrough={slotPassthrough} />
