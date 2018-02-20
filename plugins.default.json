@@ -1,11 +1,16 @@
 {
   "server": [
     "talk-plugin-auth",
+    {"@coralproject/talk-plugin-custom-asset-id": "^1.0.0"},
+    "talk-plugin-facebook-auth",
+    "talk-plugin-google-auth",
     "talk-plugin-featured-comments",
     "talk-plugin-respect"
   ],
   "client": [
     "talk-plugin-auth",
+    "talk-plugin-facebook-auth",
+    "talk-plugin-google-auth",
     "talk-plugin-author-menu",
     "talk-plugin-featured-comments",
     "talk-plugin-flag-details",

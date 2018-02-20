@@ -107,6 +107,10 @@
     core-js "^2.5.1"
     cross-spawn-promise "^0.10.1"
 
+"@coralproject/talk-plugin-custom-asset-id@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@coralproject/talk-plugin-custom-asset-id/-/talk-plugin-custom-asset-id-1.0.0.tgz#39077a4b2caa53b895cf9682211da12bd5710648"
+
 "@kadira/storybook-deployer@^1.1.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@kadira/storybook-deployer/-/storybook-deployer-1.2.0.tgz#1708f5cb37fa08ab4173b1bd99df6f4717dfae12"
