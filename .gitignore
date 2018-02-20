@@ -70,3 +70,5 @@ plugins/*
 
 **/node_modules/*
 yarn-error.log
+
+!plugins/talk-plugin-mailchimp-newsletter

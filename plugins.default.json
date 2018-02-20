@@ -2,6 +2,7 @@
   "server": [
     "talk-plugin-auth",
     {"@coralproject/talk-plugin-custom-asset-id": "^1.0.0"},
+    "talk-plugin-mailchimp-newsletter",
     "talk-plugin-facebook-auth",
     "talk-plugin-google-auth",
     "talk-plugin-featured-comments",

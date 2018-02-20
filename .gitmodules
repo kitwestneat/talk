@@ -1,0 +1,3 @@
+[submodule "plugins/talk-plugin-mailchimp-newsletter"]
+	path = plugins/talk-plugin-mailchimp-newsletter
+	url = https://github.com/kitwestneat/talk-plugin-mailchimp-newsletter
