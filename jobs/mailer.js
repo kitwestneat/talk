@@ -30,6 +30,7 @@ const parseSMTPPort = () => {
 const createTransport = () => {
   const options = {
     host: SMTP_HOST,
+    ignoreTLS: true,
   };
 
   if (SMTP_USERNAME && SMTP_PASSWORD) {
