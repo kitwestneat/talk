@@ -11,7 +11,7 @@
     "watch:client": "NODE_ENV=development webpack --progress --watch",
     "watch:server": "nodemon --config .nodemon.json",
     "start:development": "NODE_ENV=development ./bin/cli-serve -j -w",
-    "start": "NODE_ENV=production ./bin/cli-serve -j -w",
+    "start": "./bin/cli-serve -j -w",
     "prebuild": "npm-run-all clean generate-introspection",
     "build": "NODE_ENV=production parallel-webpack --bail",
     "lint:yaml": "yamllint locales/*.yml",
