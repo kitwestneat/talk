@@ -80,7 +80,7 @@ const sendNotificationsBatch = async (ctx, notifications) => {
         const body = await getNotificationBody(ctx, handler, context);
 
         // Send the email now.
-        return sendNotification(ctx, userID, subject, body);
+        return sendNotification({ ctx, userID, subject, body });
       }
     )
   );
@@ -88,13 +88,13 @@ const sendNotificationsBatch = async (ctx, notifications) => {
 
 // sendNotification will send the notification to the specified user with the
 // given context.
-const sendNotification = async (
+const sendNotification = async ({
   ctx,
   userID,
   subject,
   body,
   template = 'notification'
-) => {
+}) => {
   const {
     connectors: {
       secrets: { jwt },
@@ -199,8 +199,9 @@ const filterVerifiedNotification = ctx => async notification => {
   // Get the first local profile from the user.
   const profile = find(get(data, 'user.profiles', []), ['provider', 'local']);
   if (!profile) {
-    ctx.log.warn({ user_id: userID }, 'user did not have a local profile');
-    return;
+    const profiles = get(data, 'user.profiles', []);
+    notification.email = get(profiles[0], 'metadata.email');
+    return notification;
   }
 
   // Pull out the confirmed status from the profile.

@@ -8,7 +8,7 @@ const {
   flatten,
   property,
 } = require('lodash');
-const debug = require('debug')('talk-plugin-notifications');
+const debug = require('debug')('talk:plugin:notifications');
 const { DISABLE_REQUIRE_EMAIL_VERIFICATIONS } = require('./config');
 const { CronJob } = require('cron');
 const { getOrganizationName } = require('./util');
@@ -172,14 +172,17 @@ class NotificationManager {
             flattenedDigestCategories
           );
 
+          let email = digests.find(({ notification }) => notification.email)['email'];
+
           // Send the email with the digested body.
-          await sendNotification(
+          await sendNotification({
             ctx,
-            user.id,
+            userID: user.id,
+            email,
             subject,
-            flatten(allMessages),
-            'notification-digest'
-          );
+            body: flatten(allMessages),
+            template: 'notification-digest'
+          });
         }
       } catch (err) {
         ctx.log.error({ err }, 'could not handle digests');

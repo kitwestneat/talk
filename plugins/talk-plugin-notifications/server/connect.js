@@ -1,4 +1,4 @@
-const debug = require('debug')('talk-plugin-notifications');
+const debug = require('debug')('talk:plugin:notifications');
 const path = require('path');
 const linkify = require('linkifyjs/html');
 const NotificationManager = require('./NotificationManager');
