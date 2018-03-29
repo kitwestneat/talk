@@ -307,8 +307,8 @@ User.virtual('firstEmail').get(function() {
  */
 User.virtual('emails').get(function() {
   return (this.profiles || [])
-    .filter(({ provider }) => provider === 'local')
-    .map(({ id }) => id);
+    .map(({ id, metadata, provider }) => (provider === 'local' && id) || get(metadata, 'email', false))
+    .filter(email => email);
 });
 
 /**

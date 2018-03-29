@@ -115,7 +115,7 @@ const processJob = transport => async ({ id, data }, done) => {
   message.to = await getEmailAddress(data);
 
   const log = logger.child({ jobID: id });
-  log.info('Starting to send mail');
+  log.info('Starting to send mail', message);
 
   // Actually send the email.
   transport.sendMail(message, err => {
