@@ -35,7 +35,7 @@ const handle = async (ctx, { comment }) => {
   const enabled = get(
     reply,
     'data.comment.user.notificationSettings.onFeatured',
-    false
+    true
   );
   if (!enabled) {
     return;
@@ -99,8 +99,7 @@ module.exports = {
   `,
   resolvers: {
     NotificationSettings: {
-      // onFeatured returns false by default if not specified.
-      onFeatured: settings => get(settings, 'onFeatured', false),
+      onFeatured: settings => get(settings, 'onFeatured', true),
     },
   },
   translations: path.join(__dirname, 'translations.yml'),

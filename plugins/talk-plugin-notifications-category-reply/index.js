@@ -56,7 +56,7 @@ const commentAddedHandler = async (ctx, comment) => {
   const enabled = get(
     parentComment,
     'user.notificationSettings.onReply',
-    false
+    true
   );
   if (!enabled) {
     ctx.log.error(
@@ -172,8 +172,7 @@ module.exports = {
   `,
   resolvers: {
     NotificationSettings: {
-      // onReply returns false by default if not specified.
-      onReply: settings => get(settings, 'onReply', false),
+      onReply: settings => get(settings, 'onReply', true),
     },
   },
   translations: path.join(__dirname, 'translations.yml'),
