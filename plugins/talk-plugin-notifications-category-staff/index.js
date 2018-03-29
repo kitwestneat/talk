@@ -49,7 +49,7 @@ const handle = async (ctx, comment) => {
   const enabled = get(
     reply,
     'data.comment.user.notificationSettings.onStaffReply',
-    false
+    true
   );
   if (!enabled) {
     ctx.log.info('onStaffReply is false, will not send the notification');
@@ -155,8 +155,7 @@ module.exports = {
   `,
   resolvers: {
     NotificationSettings: {
-      // onStaffReply returns false by default if not specified.
-      onStaffReply: settings => get(settings, 'onStaffReply', false),
+      onStaffReply: settings => get(settings, 'onStaffReply', true),
     },
   },
   translations: path.join(__dirname, 'translations.yml'),
