@@ -250,10 +250,10 @@ class Stream extends React.Component {
       <div id="stream" className={styles.root}>
         {open ? (
           <div id="commentBox">
-            <InfoBox
+            {currentUser && (<InfoBox
               content={asset.settings.infoBoxContent}
               enable={asset.settings.infoBoxEnable}
-            />
+            />)}
             {questionBoxEnable && (
               <QuestionBox
                 content={asset.settings.questionBoxContent}

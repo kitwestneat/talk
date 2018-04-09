@@ -23,7 +23,7 @@ const initialState = {
   commentClassNames: [],
   activeTab: process.env.TALK_DEFAULT_STREAM_TAB,
   previousTab: '',
-  sortBy: 'CREATED_AT',
+  sortBy: 'RESPECTS',
   sortOrder: 'DESC',
   commentBoxTags: [],
 };

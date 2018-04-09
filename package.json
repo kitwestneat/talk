@@ -13,7 +13,7 @@
     "start:development": "NODE_ENV=development ./bin/cli-serve -j -w",
     "start": "./bin/cli-serve -j -w",
     "prebuild": "npm-run-all clean generate-introspection",
-    "build": "NODE_ENV=production parallel-webpack --bail",
+    "build": "NODE_ENV=production TALK_ASSET_COMMENTS_LOAD_DEPTH=3 parallel-webpack --bail",
     "lint:yaml": "yamllint locales/*.yml",
     "lint:js": "eslint bin/cli* .",
     "lint": "npm-run-all lint:*",
