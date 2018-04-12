@@ -69,6 +69,7 @@ export default class Embed extends React.Component {
       <div
         className={cn('talk-embed-stream', {
           'talk-embed-stream-highlight-comment': hasHighlightedComment,
+          'talk-embed-stream-logged-out': !this.props.currentUser,
         })}
       >
         <AutomaticAssetClosure asset={asset} />
