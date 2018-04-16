@@ -39,6 +39,12 @@ const routes = (
         <Route path="people" components={Community}>
           <Route path=":id" components={Community} />
         </Route>
+        <Route path="most-comments" components={Community}>
+          <Route path=":id" components={Community} />
+        </Route>
+        <Route path="most-karma" components={Community}>
+          <Route path=":id" components={Community} />
+        </Route>
         <IndexRedirect to="flagged" />
       </Route>
 

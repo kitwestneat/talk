@@ -993,6 +993,9 @@ type RootQuery {
   # expensive as it is not batched. This field is restricted.
   userCount(query: UserCountQuery!): Int
 
+  userMostComments: UserConnection
+  userMostKarma: UserConnection
+
   # The currently logged in user based on the request. Requires any logged in
   # role.
   me: User

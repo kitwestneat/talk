@@ -201,6 +201,44 @@ const getCountByQuery = async (
   return query.count();
 };
 
+const getUsersByMostComments = async (
+  { user, connectors: { models: { User, Comment } } }
+) => {
+  // get author IDs with most comments
+  const commentQuery = await Comment.aggregate(
+    { $group: { _id: '$author_id', count: { $sum: 1 }, } },
+    { $sort: { count: -1 } },
+    { $limit: 25 }
+  );
+  const topUserIDs = commentQuery.map(({ _id }) => _id);
+
+  // map the top user IDs to the actual user objects, filter out deleted users
+  const userQuery = await User.find({ id: { $in: topUserIDs } });
+  const userMap = userQuery.reduce((map, user) => (map[user.id] = user, map), {});
+
+  const nodes = topUserIDs.map(id => userMap[id]).filter(x=>x);
+
+  return {
+    startCursor: 0,
+    endCursor: 0,
+    hasNextPage: false,
+    nodes,
+  };
+};
+
+const getUsersByMostKarma = async (
+  { user, connectors: { models: { User, } } }
+) => {
+  const nodes = await User.find().sort({ 'metadata.trust.comment.karma': -1 }).limit(25)
+
+  return {
+    startCursor: 0,
+    endCursor: 0,
+    hasNextPage: false,
+    nodes
+  };
+};
+
 /**
  * Creates a set of loaders based on a GraphQL context.
  * @param  {Object} context the context of the GraphQL request
@@ -211,5 +249,7 @@ module.exports = context => ({
     getByQuery: query => getUsersByQuery(context, query),
     getByID: new DataLoader(ids => genUserByIDs(context, ids)),
     getCountByQuery: query => getCountByQuery(context, query),
+    getByMostComments: () => getUsersByMostComments(context),
+    getByMostKarma: () => getUsersByMostKarma(context),
   },
 });

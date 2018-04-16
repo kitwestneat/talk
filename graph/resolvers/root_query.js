@@ -50,6 +50,14 @@ const RootQuery = {
     return Users.getCountByQuery(query);
   },
 
+  async userMostComments(_, args, { loaders: { Users } }) {
+    return Users.getByMostComments();
+  },
+
+  async userMostKarma(_, args, { loaders: { Users } }) {
+    return Users.getByMostKarma();
+  },
+
   // This returns the current user, ensure that if we aren't logged in, we
   // return null.
   me(_, args, { user }) {

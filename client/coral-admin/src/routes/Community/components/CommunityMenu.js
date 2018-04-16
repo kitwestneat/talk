@@ -8,6 +8,8 @@ import CountBadge from '../../../components/CountBadge';
 const CommunityMenu = ({ flaggedUsernamesCount = 0 }) => {
   const flaggedPath = '/admin/community/flagged';
   const peoplePath = '/admin/community/people';
+  const mostCommentsPath = '/admin/community/most-comments';
+  const mostKarmaPath = '/admin/community/most-karma';
 
   return (
     <div className="mdl-tabs">
@@ -29,6 +31,20 @@ const CommunityMenu = ({ flaggedUsernamesCount = 0 }) => {
             activeClassName={styles.active}
           >
             {t('community.people')}
+          </Link>
+          <Link
+            to={mostCommentsPath}
+            className={`mdl-tabs__tab ${styles.tab} talk-admin-nav-people`}
+            activeClassName={styles.active}
+          >
+            Most Comments
+          </Link>
+          <Link
+            to={mostKarmaPath}
+            className={`mdl-tabs__tab ${styles.tab} talk-admin-nav-people`}
+            activeClassName={styles.active}
+          >
+            Most Karma
           </Link>
         </div>
       </div>
