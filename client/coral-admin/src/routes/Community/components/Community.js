@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Community.css';
 import People from '../containers/People';
+import { MostComments, MostKarma } from '../containers/Most';
 import CommunityMenu from '../containers/CommunityMenu';
 import RejectUsernameDialog from '../containers/RejectUsernameDialog';
 import FlaggedAccounts from '../containers/FlaggedAccounts';
@@ -13,6 +14,14 @@ class Community extends Component {
 
     if (activeTab === 'people') {
       return <People />;
+    }
+
+    if (activeTab === 'most-comments') {
+      return <MostComments />;
+    }
+
+    if (activeTab === 'most-karma') {
+      return <MostKarma />;
     }
 
     return (
