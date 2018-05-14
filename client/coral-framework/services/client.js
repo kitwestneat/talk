@@ -32,7 +32,7 @@ function resolveToken(token) {
 export function createClient(options = {}) {
   const { token, uri, liveUri, introspectionData } = options;
   const wsClient = new SubscriptionClient(liveUri, {
-    reconnect: true,
+    reconnect: false,
     lazy: true,
     connectionParams: {
       get token() {
@@ -88,21 +88,6 @@ export function createClient(options = {}) {
   });
 
   client.resetWebsocket = () => {
-    // Close socket connection which will also unregister subscriptions on the server-side.
-    wsClient.close();
-
-    // Reconnect to the server.
-    wsClient.connect();
-
-    // Reregister all subscriptions (uses non public api).
-    // See: https://github.com/apollographql/subscriptions-transport-ws/issues/171
-    Object.keys(wsClient.operations).forEach(id => {
-      wsClient.sendMessage(
-        id,
-        MessageTypes.GQL_START,
-        wsClient.operations[id].options
-      );
-    });
   };
 
   return client;
