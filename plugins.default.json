@@ -1,6 +1,5 @@
 {
   "server": [
-    "talk-plugin-offtopic",
     "talk-plugin-notifications",
     "talk-plugin-notifications-digest-daily",
     "talk-plugin-notifications-category-staff",
@@ -17,7 +16,6 @@
   ],
   "client": [
     "talk-plugin-comment-content",
-    "talk-plugin-offtopic",
     "talk-plugin-notifications",
     "talk-plugin-notifications-digest-daily",
     "talk-plugin-notifications-category-staff",
