@@ -64,7 +64,7 @@ class SignUp extends React.Component {
         {errorMessage && <Alert>{errorMessage}</Alert>}
         {!success && (
           <div>
-            <External slot="authExternalSignUp" />
+            <External slot="authExternalSignUp" sep="Or create an account" />
             <form onSubmit={this.handleSubmit}>
               <TextField
                 id="email"

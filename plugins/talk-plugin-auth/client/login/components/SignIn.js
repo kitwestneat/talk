@@ -56,7 +56,7 @@ class SignIn extends React.Component {
         </div>
         {errorMessage && <Alert>{errorMessage}</Alert>}
         <div>
-          <External slot="authExternalSignIn" />
+          <External slot="authExternalSignIn" sep="Sign in with your email"/>
           <form onSubmit={this.handleSubmit}>
             <TextField
               id="email"
