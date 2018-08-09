@@ -64,12 +64,12 @@ class SignUp extends React.Component {
         {errorMessage && <Alert>{errorMessage}</Alert>}
         {!success && (
           <div>
-            <External slot="authExternalSignUp" />
+            <External slot="authExternalSignUp" sep="Or create an account" />
             <form onSubmit={this.handleSubmit}>
               <TextField
                 id="email"
                 type="email"
-                label={t('talk-plugin-auth.login.email')}
+                placeholder={t('talk-plugin-auth.login.email')}
                 value={email}
                 style={{ fontSize: 16 }}
                 showErrors={!!emailError}
@@ -80,7 +80,7 @@ class SignUp extends React.Component {
               <TextField
                 id="username"
                 type="text"
-                label={t('talk-plugin-auth.login.username')}
+                placeholder={t('talk-plugin-auth.login.username')}
                 value={username}
                 style={{ fontSize: 16 }}
                 showErrors={!!usernameError}
@@ -92,7 +92,7 @@ class SignUp extends React.Component {
               <TextField
                 id="password"
                 type="password"
-                label={t('talk-plugin-auth.login.password')}
+                placeholder={t('talk-plugin-auth.login.password')}
                 value={password}
                 style={{ fontSize: 16 }}
                 showErrors={!!passwordError}
@@ -109,7 +109,7 @@ class SignUp extends React.Component {
               <TextField
                 id="confirmPassword"
                 type="password"
-                label={t('talk-plugin-auth.login.confirm_password')}
+                placeholder={t('talk-plugin-auth.login.confirm_password')}
                 value={passwordRepeat}
                 style={{ fontSize: 16 }}
                 showErrors={!!passwordRepeatError}
