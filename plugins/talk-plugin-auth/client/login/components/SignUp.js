@@ -69,37 +69,37 @@ class SignUp extends React.Component {
               <TextField
                 id="email"
                 type="email"
-                label={t('talk-plugin-auth.login.email')}
+                placeholder={t('talk-plugin-auth.login.email')}
                 value={email}
                 style={{ fontSize: 16 }}
                 showErrors={!!emailError}
                 errorMsg={emailError}
                 onChange={this.handleEmailChange}
-                autocomplete="off"
+                autoComplete="off"
               />
               <TextField
                 id="username"
                 type="text"
-                label={t('talk-plugin-auth.login.username')}
+                placeholder={t('talk-plugin-auth.login.username')}
                 value={username}
                 style={{ fontSize: 16 }}
                 showErrors={!!usernameError}
                 errorMsg={usernameError}
                 onChange={this.handleUsernameChange}
-                autocomplete="off"
-                autocapitalize="none"
+                autoComplete="off"
+                autoCapitalize="none"
               />
               <TextField
                 id="password"
                 type="password"
-                label={t('talk-plugin-auth.login.password')}
+                placeholder={t('talk-plugin-auth.login.password')}
                 value={password}
                 style={{ fontSize: 16 }}
                 showErrors={!!passwordError}
                 errorMsg={passwordError}
                 onChange={this.handlePasswordChange}
                 minLength="8"
-                autocomplete="off"
+                autoComplete="off"
               />
               {passwordError && (
                 <span className={styles.hint}>
@@ -110,14 +110,14 @@ class SignUp extends React.Component {
               <TextField
                 id="confirmPassword"
                 type="password"
-                label={t('talk-plugin-auth.login.confirm_password')}
+                placeholder={t('talk-plugin-auth.login.confirm_password')}
                 value={passwordRepeat}
                 style={{ fontSize: 16 }}
                 showErrors={!!passwordRepeatError}
                 errorMsg={passwordRepeatError}
                 onChange={this.handlePasswordRepeatChange}
                 minLength="8"
-                autocomplete="off"
+                autoComplete="off"
               />
               <Slot
                 fill="talkPluginAuth.formField"

@@ -61,7 +61,7 @@ class SignIn extends React.Component {
             <TextField
               id="email"
               type="email"
-              label={t('talk-plugin-auth.login.email')}
+              placeholder={t('talk-plugin-auth.login.email')}
               value={email}
               style={{ fontSize: 16 }}
               onChange={this.handleEmailChange}
@@ -69,7 +69,7 @@ class SignIn extends React.Component {
             <TextField
               id="password"
               type="password"
-              label={t('talk-plugin-auth.login.password')}
+              placeholder={t('talk-plugin-auth.login.password')}
               value={password}
               style={{ fontSize: 16 }}
               onChange={this.handlePasswordChange}

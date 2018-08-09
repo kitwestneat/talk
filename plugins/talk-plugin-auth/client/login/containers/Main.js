@@ -29,7 +29,7 @@ class MainContainer extends React.Component {
   }
 
   render() {
-    return <Main onResetView={this.resetView} view={this.props.view} />;
+    return <Main onResetView={this.resetView} view={this.props.view} setView={this.props.setView} />;
   }
 }
 
