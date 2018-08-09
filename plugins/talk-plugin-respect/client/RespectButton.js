@@ -46,15 +46,9 @@ class RespectButton extends React.Component {
           )}
           onClick={this.handleClick}
         >
-          <span className={cn(`${plugin}-label`, styles.label)}>
-            {t(
-              alreadyReacted
-                ? 'talk-plugin-respect.respected'
-                : 'talk-plugin-respect.respect'
-            )}
-          </span>
           <Icon className={cn(styles.icon, `${plugin}-icon`)} />
-          <span className={cn(`${plugin}-count`)}>{count > 0 && count}</span>
+          <span className={cn(`${plugin}-count`)}>{count > 0 && count} </span>
+          <span className={cn(`${plugin}-label`, styles.label)}> {t('talk-plugin-respect.respect')} </span>
         </button>
       </div>
     );
