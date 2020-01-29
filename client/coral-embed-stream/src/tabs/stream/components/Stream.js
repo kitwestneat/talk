@@ -299,7 +299,7 @@ class Stream extends React.Component {
             )}
           </div>
         ) : (
-          <div>
+          <div className={cn('talk-stream-closed-message', styles.closedMessage)}>
             {asset.isClosed ? (
               <Markdown content={asset.settings.closedMessage} />
             ) : (
