@@ -8,6 +8,7 @@
     "talk-plugin-featured-comments",
     "talk-plugin-respect",
     "talk-plugin-notifications",
+    "talk-plugin-slack-notifications",
     "talk-plugin-notifications-digest-daily",
     "talk-plugin-notifications-category-staff",
     "talk-plugin-notifications-category-reply",
