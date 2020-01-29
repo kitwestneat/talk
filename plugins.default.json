@@ -1,5 +1,11 @@
 {
   "server": [
+    "talk-plugin-offtopic",
+    "talk-plugin-notifications",
+    "talk-plugin-notifications-digest-daily",
+    "talk-plugin-notifications-category-staff",
+    "talk-plugin-notifications-category-reply",
+    "talk-plugin-notifications-category-featured",
     {"@coralproject/talk-plugin-custom-asset-id": "^1.0.0"},
     "talk-plugin-mailchimp-newsletter",
     "talk-plugin-facebook-auth",
@@ -10,6 +16,13 @@
     "talk-plugin-respect"
   ],
   "client": [
+    "talk-plugin-comment-content",
+    "talk-plugin-offtopic",
+    "talk-plugin-notifications",
+    "talk-plugin-notifications-digest-daily",
+    "talk-plugin-notifications-category-staff",
+    "talk-plugin-notifications-category-reply",
+    "talk-plugin-notifications-category-featured",
     "talk-plugin-facebook-auth",
     "talk-plugin-google-auth",
     "talk-plugin-auth",
