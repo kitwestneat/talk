@@ -5,6 +5,7 @@
     "talk-plugin-notifications-category-staff",
     "talk-plugin-notifications-category-reply",
     "talk-plugin-notifications-category-featured",
+    "talk-plugin-slack-notifications",
     {"@coralproject/talk-plugin-custom-asset-id": "^1.0.0"},
     "talk-plugin-mailchimp-newsletter",
     "talk-plugin-facebook-auth",

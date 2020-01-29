@@ -13,9 +13,10 @@ module.exports = {
       async post(root, args, context, info, result) {
         debug(`Posting notification to Slack webhook: ${SLACK_WEBHOOK_URL}`);
         const {
-          comment: { body: text, created_at: createdAt },
+          comment: { asset_id, body: text, created_at: createdAt },
         } = result;
         const username = context.user.username;
+        const asset = await context.loaders.Assets.getByID.load(asset_id);
         process.nextTick(async () => {
           const response = await fetch(SLACK_WEBHOOK_URL, {
             method: 'POST',
@@ -26,7 +27,7 @@ module.exports = {
             body: JSON.stringify({
               attachments: [
                 {
-                  text: text,
+                  text: text + "\n" + asset.title + "\n" + asset.url,
                   footer: `Comment by ${username}`,
                   ts: Math.floor(Date.parse(createdAt) / 1000),
                 },
